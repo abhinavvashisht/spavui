@@ -93,6 +93,30 @@
     </script>
     <!-- visit counter  -->
 
+    <!-- script for date and time  -->
+    <script>
+        function updateDateTime() {
+          // Get current date and time
+          const now = new Date();
+          
+          // Format date
+          const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+          const formattedDate = now.toLocaleDateString('en-US', dateOptions);
+          
+          // Format time
+          const timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+          const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
+          
+          // Display date and time
+          document.getElementById('date').innerText = formattedDate;
+          document.getElementById('time').innerText = formattedTime;
+        }
+        
+        // Update date and time every second
+        setInterval(updateDateTime, 1000);
+      </script>
+    <!-- script for date and time  -->
+
 </head>
 
 <body>
@@ -119,7 +143,9 @@
         <div class="container-fluid p-2">
             <div class="row g-2">
                 <div class="col-sm-6">
-                    <a href="index.html"><img class="img-fluid" src="images/spav_logo_strap.jpg" alt=""></a>
+                    <a href="index.html"><img class="img-fluid border-bottom" src="images/spav_logo_strap.jpg" alt=""></a>
+                    <br>
+                    <span id="date"></span> | <span id="time"></span>
                 </div>
                 <div class="col-sm-6">
                     <form class="d-flex" role="search">
@@ -617,7 +643,7 @@
             </footer>
 
             <footer class="d-flex flex-wrap justify-content-between align-items-center border-top">
-                <p class="col-md-4 mb-0 text-body-secondary">Last Update : DD/MM/YYYY </p>
+                <p class="col-md-4 mb-0 text-body-secondary">Last Update :<span id="date"></span> | <span id="time"></span> </p>
 
                 <a href="/"
                     class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
